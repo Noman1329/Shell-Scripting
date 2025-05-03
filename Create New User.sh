@@ -38,10 +38,10 @@ if [ $# -gt 0 ]; then
             Digit=$(tr -dc '0-9' </dev/urandom | head -c1)
             SPECIAL_CHARS=$(tr -dc "$SPECIAL_CHARS" </dev/urandom | head -c1)
             Random=$(tr -dc "$CHARS$SPECIAL_CHARS" </dev/urandom | head -c $((LENGTH - 4)))
-
             PASSWORD=$(echo "$UpperCase$LowerCase$Digit$SPECIAL_CHARS$Random" | fold -w1 | shuf | tr -d '\n')
             echo "User ["$USER"] has been created!"
             echo "The temporary password for ["$USER"] is "$PASSWORD""
+            echo "________<>________"
         fi
     done
 else
